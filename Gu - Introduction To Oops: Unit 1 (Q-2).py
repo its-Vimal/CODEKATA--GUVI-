@@ -50,18 +50,17 @@ class TopStudentFinder:
         self.top_student = ""
 
     def find_top_student(self, students):
-       
 
-        for student in  students:
-            avg_score=student.calculate_average()
-            if avg_score>self.max_avg:
-                self.max_avg=avg_score
+        #..... YOUR CODE STARTS HERE .....
+
+        for student in students:
+            average = student.calculate_average()
+            if average> self.max_avg:
+                self.max_avg=average
                 self.top_student=student.get_name()
-                
-            
 
+        #..... YOUR CODE ENDS HERE ..... 
 
-        
     def get_top_student(self):
         return self.top_student
 
@@ -71,14 +70,11 @@ if __name__ == "__main__":
     students_data = []
 
     for _ in range(n):
-        student_info = input().split()
-        name = student_info[0]
-        scores = list(map(int, student_info[1:]))
-        students_data.append(Student(name, scores))
 
+    #..... YOUR CODE STARTS HERE .....
     
+    top_finder= TopStudentFinder()
+    top_finder.find_top_student(students_data)
+    print(top_finder.get_top_student())
 
-    top_student_finder=TopStudentFinder()
-    top_student_finder.find_top_student(students_data)
-    top_student=top_student_finder.get_top_student()
-    print(top_student)
+    #..... YOUR CODE ENDS HERE .....    
